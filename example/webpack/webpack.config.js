@@ -38,7 +38,7 @@ const config = {
                 loader: 'react-loadable-loader',
                 options: {
                     delay: 431,
-                    loading: path.join(commonPaths.srcPath, 'components-bundled/loading.tsx')
+                    loading: path.join(commonPaths.srcPath, 'components-bundled/loading')
                 }
             },
             {
