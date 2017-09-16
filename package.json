@@ -6,6 +6,10 @@
     "name": "Florian Bachmann",
     "email": "scriptineer@anpingen.de"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scriptineer/react-loadable-loader"
+  },
   "main": "dist/react-loadable-loader",
   "files": [
     "dist"
