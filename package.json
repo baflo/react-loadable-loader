@@ -1,0 +1,36 @@
+{
+  "name": "react-loadable-loader",
+  "description": "A loaded to apply react-loadable to complete sets of files or directories.",
+  "version": "0.0.0",
+  "author": {
+    "name": "Florian Bachmann",
+    "email": "scriptineer@anpingen.de"
+  },
+  "main": "dist/react-loadable-loader",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "example": "webpack-dev-server --config ./example/webpack/webpack.config.js",
+    "prepublish": "npm run build"
+  },
+  "dependencies": {
+    "loader-utils": "~1.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.0.5",
+    "@types/react-dom": "^15.5.4",
+    "@types/react-loadable": "^4.0.4",
+    "react": "~15.6.1",
+    "react-dom": "~15.6.1",
+    "react-loadable": "~4.0.5",
+    "ts-loader": "^2.3.7",
+    "tslint": "^5.7.0",
+    "tslint-react": "^3.2.0",
+    "typescript": "^2.5.2",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.8.2"
+  },
+  "license": "MIT"
+}
