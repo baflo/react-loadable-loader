@@ -1,6 +1,6 @@
 {
   "name": "react-loadable-loader",
-  "description": "A loaded to apply react-loadable to complete sets of files or directories.",
+  "description": "A webpack loader to apply react-loadable to complete sets of files or directories.",
   "version": "0.0.0",
   "author": {
     "name": "Florian Bachmann",
@@ -19,6 +19,7 @@
     "loader-utils": "~1.1.0"
   },
   "devDependencies": {
+    "@types/loader-utils": "^1.1.0",
     "@types/react": "^16.0.5",
     "@types/react-dom": "^15.5.4",
     "@types/react-loadable": "^4.0.4",

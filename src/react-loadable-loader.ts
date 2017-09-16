@@ -1,9 +1,11 @@
-var loaderUtils = require("loader-utils");
+import * as loaderUtils from 'loader-utils';
+import { loader } from 'webpack';
 
-module.exports = function (content) {
+const loader: loader.Loader = function (content) {
     return content;
 }
-module.exports.pitch = function (remainingRequest, precedingRequest, data) {
+
+loader.pitch = function (this: loader.LoaderContext, remainingRequest, precedingRequest, data) {
     this.cacheable && this.cacheable();
     const query = loaderUtils.getOptions(this) || {};
     const moduleRequest = `!!${remainingRequest}`;
@@ -16,4 +18,6 @@ module.exports.pitch = function (remainingRequest, precedingRequest, data) {
         .join('\n');
 
     return code;
-}
+};
+
+export = loader;
