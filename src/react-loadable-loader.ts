@@ -1,3 +1,4 @@
+import * as path from 'path';
 import * as loaderUtils from 'loader-utils';
 import { loader } from 'webpack';
 
@@ -7,12 +8,22 @@ const loader: loader.Loader = function (content) {
 
 loader.pitch = function (this: loader.LoaderContext, remainingRequest, precedingRequest, data) {
     this.cacheable && this.cacheable();
-    const query = loaderUtils.getOptions(this) || {};
+    const options = { ...(loaderUtils.getOptions(this) || {}) };
+    const loadingRequest = options.loading || path.join(__dirname, './loading');
     const moduleRequest = `!!${remainingRequest}`;
+
+    delete options.loading;
 
     const code = [
         `import load from ${loaderUtils.stringifyRequest(this, require.resolve("./loadable-hoc"))};`,
-        `const Application = load({ loader: () => import(${loaderUtils.stringifyRequest(this, moduleRequest)}) });`,
+        `import loading from ${loaderUtils.stringifyRequest(this, path.relative(this.context, loadingRequest))};`,
+        `const Application = load(Object.assign(`,
+        `    ${JSON.stringify(options)},`,
+        `    {`,
+        `        loader: () => import(${loaderUtils.stringifyRequest(this, moduleRequest)}),`,
+        `        loading`,
+        `    }`,
+        `));`,
         `export default Application;`
     ]
         .join('\n');

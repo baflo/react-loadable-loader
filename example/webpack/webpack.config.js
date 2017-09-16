@@ -35,7 +35,11 @@ const config = {
             {
                 test: /\.(jsx?|tsx?)$/,
                 include: [path.join(commonPaths.srcPath, 'components-loadable')],
-                loader: 'react-loadable-loader'
+                loader: 'react-loadable-loader',
+                options: {
+                    delay: 431,
+                    loading: path.join(commonPaths.srcPath, 'components-bundled/loading.tsx')
+                }
             },
             {
                 test: /\.(jsx?|tsx?)$/,
