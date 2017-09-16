@@ -1,7 +1,7 @@
 {
   "name": "react-loadable-loader",
   "description": "A webpack loader to apply react-loadable to complete sets of files or directories.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "Florian Bachmann",
     "email": "scriptineer@anpingen.de"
