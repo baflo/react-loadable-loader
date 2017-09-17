@@ -1,4 +1,5 @@
 const path = require('path');
+const CommonChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 
 const commonPaths = {
     srcPath: path.join(__dirname, '../src/app'),
@@ -62,6 +63,11 @@ const config = {
             }
         ],
     },
+    plugins: [
+        new CommonChunkPlugin({
+            name: 'commons'
+        })
+    ],
     output: {
         path: commonPaths.outPath,
         filename: '[name].js'
