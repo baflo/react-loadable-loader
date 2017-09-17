@@ -35,6 +35,20 @@ const config = {
             {
                 test: /\.(jsx?|tsx?)$/,
                 include: [path.join(commonPaths.srcPath, 'components-loadable')],
+                loader: 'babel-loader',
+                options: {
+                    plugins: [
+                        'syntax-dynamic-import',
+                        ['import-inspector', {
+                            serverSideRequirePath: true,
+                            webpackRequireWeakId: true
+                        }]
+                    ]
+                }
+            },
+            {
+                test: /\.(jsx?|tsx?)$/,
+                include: [path.join(commonPaths.srcPath, 'components-loadable')],
                 loader: 'react-loadable-loader',
                 options: {
                     delay: 431,
