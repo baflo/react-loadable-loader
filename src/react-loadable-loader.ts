@@ -15,6 +15,7 @@ loader.pitch = function (this: loader.LoaderContext, remainingRequest, preceding
     delete options.loading;
 
     const code = [
+        // ES6 (i.e. no object rest spread operator)
         `import load from ${loaderUtils.stringifyRequest(this, require.resolve("./loadable-hoc"))};`,
         `import loading from ${loaderUtils.stringifyRequest(this, path.relative(this.context, loadingRequest))};`,
         `const Application = load(Object.assign(`,
